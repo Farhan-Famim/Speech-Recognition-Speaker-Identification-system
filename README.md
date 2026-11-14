@@ -98,11 +98,12 @@ Where:
 - `I` = insertions (an extra word appears in the prediction)
 - `N` = number of words in the reference transcript
 
-Lower WER indicates better transcription performance. The evaluation code normalizes text by converting it to lowercase and removing punctuation/extra whitespace before calculating WER. This avoids penalizing differences that are only due to capitalization or punctuation. It does **not** automatically equate every formatting difference, such as `40,000` and `forty thousand`. <br>
+Lower WER indicates better transcription performance. The evaluation code normalizes text by converting it to lowercase and removing punctuation/extra whitespace before calculating WER. This avoids penalizing differences that are only due to capitalization or punctuation. It does **not** automatically equate every formatting difference, such as `40,000` and `forty thousand`.  
 
 
 ![image alt](Images/sys_arch.png)
 > <i>Figure-2: System Architecture.</i> <br>
+
 
 
 ## Technologies Used
