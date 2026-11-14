@@ -63,8 +63,16 @@ The SVM classifier cannot learn directly from the audio file path or raw wavefor
 
 1. Load the audio using `librosa` at a sample rate of 16 kHz.
 2. Extract 13 MFCC coefficients for the audio frames.
-3. Calculate the mean of each coefficient across time.
-4. Use the resulting 13-value vector as the representation of that recording.
+3. Three statistics are derived and concatenated into a
+single 39-dimensional feature vector:
+- MFCC Mean (13 values) — captures the average tonal and timbral characteristics of the speaker's voice.
+- MFCC Standard Deviation (13 values) — captures variability in the voice, reflecting speaking rhythm and style.
+- Delta MFCC Mean (13 values) — captures the rate of change of MFCCs over time, reflecting voice transitions between sounds.
+4. Calculate the mean of each coefficient across time.
+5. Use the resulting 39-value vector as the representation of that recording.
+
+![image alt](Images/39-dim.png)
+###Figure-1: 39-dimensional feature extraction SVM pipeline.
 
 This produces a fixed-size feature vector, regardless of the recording duration. The mean-MFCC representation is intentionally simple and lightweight, but it also discards some information about how voice characteristics change over time.
 
