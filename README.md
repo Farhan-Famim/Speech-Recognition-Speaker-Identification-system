@@ -72,7 +72,7 @@ single 39-dimensional feature vector:
 5. Use the resulting 39-value vector as the representation of that recording.
 
 ![image alt](Images/39-dim.png)
-###Figure-1: 39-dimensional feature extraction SVM pipeline.
+> <i>Figure-1: 39-dimensional feature extraction SVM pipeline.</i>
 
 This produces a fixed-size feature vector, regardless of the recording duration. The mean-MFCC representation is intentionally simple and lightweight, but it also discards some information about how voice characteristics change over time.
 
@@ -99,6 +99,9 @@ Where:
 - `N` = number of words in the reference transcript
 
 Lower WER indicates better transcription performance. The evaluation code normalizes text by converting it to lowercase and removing punctuation/extra whitespace before calculating WER. This avoids penalizing differences that are only due to capitalization or punctuation. It does **not** automatically equate every formatting difference, such as `40,000` and `forty thousand`.
+
+![image alt](Images/sys_arch.png)
+> <i>Figure-2: System Architecture.</i>
 
 ## Technologies Used
 
