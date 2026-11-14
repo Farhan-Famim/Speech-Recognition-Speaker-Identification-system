@@ -222,7 +222,7 @@ If the test set contains entirely new people who were not represented in trainin
 ### 1. Clone the repository
 
 ```bash
-git clone <(https://github.com/Farhan-Famim/Speech-Recognition-Speaker-Identification-system.git)>
+git clone <https://github.com/Farhan-Famim/Speech-Recognition-Speaker-Identification-system.git>
 cd speech-recognition-project
 ```
 
