@@ -16,9 +16,6 @@ A machine learning course project for **CSE445 – Machine Learning**. The proje
 - [Running the Project](#running-the-project)
 - [Feature Caching and Dataset Updates](#feature-caching-and-dataset-updates)
 - [Evaluation](#evaluation)
-- [Current Limitations](#current-limitations)
-- [Possible Future Improvements](#possible-future-improvements)
-- [Reproducibility and Repository Notes](#reproducibility-and-repository-notes)
 - [References](#references)
 
 ## Overview
@@ -391,38 +388,6 @@ An accuracy of `1.0` means all samples in that particular test split were classi
 
 For a more reliable result, expand the number and diversity of recordings per speaker, use a stratified split where appropriate, and evaluate on a separate set of recordings that was not used for feature extraction/model fitting decisions.
 
-## Current Limitations
-
-- **Single-speaker input assumption:** the current SVM predicts one speaker for an entire audio file. It does not diarize a recording containing multiple speakers.
-- **Known-speaker classification only:** the SVM can classify speakers represented during training. It is not designed to identify a completely unseen person.
-- **Small initial dataset:** the current prototype uses 3 speakers and 5 audio samples per speaker. This is useful for development but insufficient for strong generalization claims.
-- **Simple speaker representation:** the current classifier uses the mean of 13 MFCC coefficients. It does not use specialized speaker embeddings or a deep speaker-recognition network.
-- **Whisper is not fine-tuned:** the current speech recognition component uses the pretrained Whisper `base` model directly.
-- **Feature cache refresh is manual:** after adding or replacing training recordings, the cached `.npy` files must be deleted before rebuilding the dataset.
-- **Recording conditions matter:** background noise, microphone quality, speaking distance, accent, pace, and room acoustics can affect both transcription and speaker classification.
-
-## Possible Future Improvements
-
-- Expand the dataset to 10 or more speakers and collect multiple recordings per speaker across different sentences and recording sessions.
-- Create a separate test set containing new recordings from the same enrolled speakers.
-- Implement automatic cache invalidation or append only features for new audio files.
-- Save the trained SVM model with `joblib` so inference does not require retraining each time.
-- Experiment with MFCC normalization, additional acoustic features, different SVM kernels, and hyperparameter tuning.
-- Compare speaker classification performance with more advanced speaker embeddings.
-- Add a speaker diarization component to detect speaker changes and label segments in multi-speaker recordings.
-- Investigate Whisper fine-tuning or domain adaptation if the dataset and compute resources justify it.
-- Add a simple graphical interface or microphone input for interactive testing.
-
-## Reproducibility and Repository Notes
-
-Before publishing the repository:
-
-- Include the source files and a clear dependency list.
-- Do not commit your virtual environment (`venv/`).
-- Consider excluding generated cache/model files (`features_X.npy`, `labels_y.npy`, `svm_speaker_model.pkl`) if they can be recreated locally.
-- Include a small sample dataset only when you have permission to distribute the recordings and transcripts.
-- Do not upload other people's voice recordings without their informed consent. Check the license or usage rights for any audio or transcript taken from external sources.
-- If the full dataset is too large or cannot be redistributed, explain how to arrange the dataset locally and provide a small permitted sample or a data-collection guide instead.
 
 A suggested `.gitignore` is:
 
